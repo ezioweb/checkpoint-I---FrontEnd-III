@@ -1,5 +1,5 @@
 import { Card } from './Card'
-import { Form } from './Form'
+
 // Aqui você irá escrever as suas funções de Validação, para verificar se o Formulário foi preenchido corretamente
 
 function App() {

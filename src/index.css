@@ -64,7 +64,7 @@ section{
   display: flex;
   height: 250px;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .container{
             display: flex;
@@ -83,7 +83,7 @@ section{
             border-radius: 20px;
             color: white;
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             align-items: flex-end;
             padding: 20px;
             
