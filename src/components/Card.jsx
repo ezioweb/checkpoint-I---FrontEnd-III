@@ -2,6 +2,9 @@
 import "./style.scss";
 
 export function Card(props) {
+
+
+  
   const corFundo = props.corData.hexadecimal
   return (
     

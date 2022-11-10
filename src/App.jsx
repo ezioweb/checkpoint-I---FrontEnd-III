@@ -19,6 +19,7 @@ function App() {
   const [numeroCor, setNumeroCor] = useState("");
   const [cores, setCores] = useState([]);
   const [formularioErro, setFormularioErro] = useState(false);
+  
 
   const cadastrarCor = (event) => {
     event.preventDefault();
@@ -41,8 +42,7 @@ function App() {
   };
   return (
     <>
-      {/* Formulario       */}
-
+      {/* Formulario */}
       <div>
         <section className={`formInputs ${formularioErro ? "form-error" : ""}`}>
           <header className="tittle-wrapper">
@@ -58,18 +58,22 @@ function App() {
                 <input
                   id="nomeCor"
                   type="text"
+                  name="nomeCor"
                   value={nomeCor}
-                  onChange={(event) => setNomeCor(event.target.value)}
-                />
+                  onChange={(event) => setNomeCor(event.target.value)}/>
               </div>
-              <div>
+              <div >
                 <label htmlFor="numeroCor">Cor (hexadecimal)</label>
                 <input
                   id="numeroCor"
                   type="text"
+                  name="numeroCor"
                   value={numeroCor}
-                  onChange={(event) => setNumeroCor(event.target.value)}
-                />
+                  onChange={(event) => setNumeroCor(event.target.value)}/>
+                  <div>
+                  <label htmlFor="numeroCor">Clique para escolher a cor</label>
+                  <input htmlFor="inputCor" id="inputCor" type="color" value={numeroCor} onChange={event => setNumeroCor(event.target.value)}/>
+                  </div>
               </div>
             </section>
             <button type="submit">Incluir cor</button>
