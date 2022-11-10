@@ -1,0 +1,99 @@
+.tittle-wrapper{
+    margin: 10px 0px 20px;
+}
+.formInputs{
+    width: 1200px;
+    background-color: #202020;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 50px;
+    margin: 20px auto;
+    border-radius: 8px;
+    
+
+}
+
+form{    
+    display: flex;
+    flex-direction: row;
+    align-items: bottom;   
+    gap: 20px;     
+    justify-content: space-around;
+    input {
+        width: 100%;
+        margin: 5px 0px;
+        padding: 10px 0px;
+        border-radius: 10px;
+        background-color:#353535;
+        border: none;
+        
+        
+    }
+    label{
+        color: #888888 
+    }
+
+    button {
+        background-color: #36CE7C;
+        color: white;
+        padding: 00px 50px;        
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: large;
+          
+    }
+  
+}
+.form-error {
+    background-color: red;       
+}
+
+.cardColor {
+    width: calc(50% - 10px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .1s ease-in-out;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    &:hover {
+        filter: brightness(150%);
+        cursor: pointer;
+    }
+
+    .cardShow {
+        padding: 50px 10px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        color: white;
+        h2{
+            font-size: large;
+        }
+        h3{
+            margin-top: -10px;
+            font-size: xx-large;
+        }
+    }
+}
+.show {
+    max-width: 1200px;
+    height: auto;
+    
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 50px;
+    margin: 20px auto;
+    border-radius: 10px;
+    
+    
+  }
+.cardsArea{
+        font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;    
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 20px;
+}
