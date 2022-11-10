@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState } from "react";
 import "./components/style.scss";
-import { Card } from './components/Card'
+import { Card } from "./components/Card";
 
 // Aqui você irá escrever as suas funções de Validação, para verificar se o Formulário foi preenchido corretamente
 function validacaoNomeDaCor(nomeCor) {
@@ -15,89 +15,82 @@ function validacaoCorHexadecimal(corHexadecimal) {
 
 function App() {
   // Aqui você irá criar os Estados para manipular os Inputs
-  const [nomeCor, setNomeCor] = useState("")
-  const [numeroCor, setNumeroCor] = useState("")
-  const [cores, setCores] = useState([])
-  const [formularioErro, setFormularioErro] = useState(false)
+  const [nomeCor, setNomeCor] = useState("");
+  const [numeroCor, setNumeroCor] = useState("");
+  const [cores, setCores] = useState([]);
+  const [formularioErro, setFormularioErro] = useState(false);
 
   const cadastrarCor = (event) => {
     event.preventDefault();
-    let novoId = cores.length 
+    let novoId = cores.length;
     //Validação da cor
-    if (
-      validacaoCorHexadecimal(numeroCor) &&
-      validacaoNomeDaCor(nomeCor)
-    ) {
+    if (validacaoCorHexadecimal(numeroCor) && validacaoNomeDaCor(nomeCor)) {
       setFormularioErro(false);
 
       const novaCorCadastrada = {
-        id: novoId,        
+        id: novoId,
         nome: nomeCor,
         hexadecimal: numeroCor,
-    };
-    setNomeCor('')
-    setNumeroCor('')
-    setCores([...cores, novaCorCadastrada])
-  } else {
-    setFormularioErro(true);
-  }
-}
+      };
+      setNomeCor("");
+      setNumeroCor("");
+      setCores([...cores, novaCorCadastrada]);
+    } else {
+      setFormularioErro(true);
+    }
+  };
   return (
-    
-   <>
-    {/* Formulario       */}
-    
-      
-    
-    <div>  
-    <section className='formInputs'>   
-     <header className='tittle-wrapper'>
-     <h1>Adicionar nova cor</h1>
-     </header>
-     <form className={formularioErro ? "form-error" : ""}onSubmit={event => cadastrarCor(event)}>
-     <div>
-              <label htmlFor='nomeCor'>Nome da cor</label>
-              <input
-                id='nomeCor'
-                type='text'
-                value={nomeCor}
-                onChange={(event) => setNomeCor(event.target.value)}                
-              />
-            </div>
-            <div>
-              <label htmlFor='numeroCor'>Cor (hexadecimal)</label>
-              <input
-                id='numeroCor'
-                type="text"
-                value={numeroCor}
-                onChange={(event) => setNumeroCor(event.target.value)}
-                />
-            </div>
+    <>
+      {/* Formulario       */}
+
+      <div>
+        <section className={`formInputs ${formularioErro ? "form-error" : ""}`}>
+          <header className="tittle-wrapper">
+            <h1>Adicionar nova cor</h1>
+          </header>
+          <form
             
-                <button type="submit">Incluir cor</button>
-               
-     </form>  
-     {formularioErro ? <span> Por favor, verifique os dados inseridos no formulário</span> : null}
-     </section>
-     
-       </div>
-    <div className='show'>
-      <header className='tittle-wrapper'>
-        <h1>Cores favoritas</h1>
-      </header>
-        <section className='cardsArea'>
-          
-        {cores.map((cor) => (
-          <Card key={cor.id} corData={cor}/>
-        ))}
+            onSubmit={(event) => cadastrarCor(event)}
+          >
+            <section className="inputs-wrapper">
+              <div>
+                <label htmlFor="nomeCor">Nome da cor</label>
+                <input
+                  id="nomeCor"
+                  type="text"
+                  value={nomeCor}
+                  onChange={(event) => setNomeCor(event.target.value)}
+                />
+              </div>
+              <div>
+                <label htmlFor="numeroCor">Cor (hexadecimal)</label>
+                <input
+                  id="numeroCor"
+                  type="text"
+                  value={numeroCor}
+                  onChange={(event) => setNumeroCor(event.target.value)}
+                />
+              </div>
+            </section>
+            <button type="submit">Incluir cor</button>
+          </form>
+          {formularioErro ? (
+            <span> Por favor, verifique os dados inseridos no formulário</span>
+          ) : null}
         </section>
-    </div>
-    
-  
-  
-  </>
-    
-  )
+      </div>
+      <div className="show">
+        <header className="tittle-wrapper">
+          <h1>Cores favoritas</h1>
+        </header>
+        <section className="cardsArea">
+          {cores.map((cor) => (
+            <Card key={cor.id} corData={cor} />
+          ))}
+        </section>
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
